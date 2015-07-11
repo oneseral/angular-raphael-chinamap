@@ -1,0 +1,24 @@
+{
+  "name": "angular-raphael-chinamap",
+  "version": "0.0.0",
+  "main": [
+    "dist/angular-raphael-chinamap.js"
+  ],
+  "authors": [
+    "Alice <1445439855@qq.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.2",
+    "raphael": "~2.1.4",
+    "bootstrap": "3.3.4"
+  }
+}

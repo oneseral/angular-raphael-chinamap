@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Directive</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <style type="text/css">
+    	body {
+    		text-align: center;
+    	}
+
+		.rt {
+			margin: 0 auto;
+		}
+    </style>
+</head>
+<body ng-app="app">
+	<div class="container" ng-controller="MainCtrl">
+	  <div class="row">
+	  	<button type="button" class="col-md-1 col-md-offset-1 btn btn-primary" ng-repeat="m in models" ng-click='show(m)'>{{m}}</button>
+	  </div>
+	  <div class="col-md-10" id="map" showmap=""></div>
+	</div>
+  	<script src="dist/lib.js"></script>
+  	<script src="dist/angular-raphael-chinamap.js"></script>
+  	<script type="text/javascript">
+  		(function() {
+  			angular.module('app', ['ChinaMap']).controller('MainCtrl', ['$scope', MainCtrl]);
+
+  			function MainCtrl($scope) {
+  				$scope.models = ['a', 'b', 'c', 'd', 'e'];
+
+  				$scope.show = function(m) {
+  					console.log(m);
+  				};
+
+  				$scope.mapDatas = {'海南':998};
+  			}
+  		})();
+  	</script>
+</body>
+</html>
