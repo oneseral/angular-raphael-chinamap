@@ -17,9 +17,9 @@
 <body ng-app="app">
 	<div class="container" ng-controller="MainCtrl">
 	  <div class="row">
-	  	<button type="button" class="col-md-1 col-md-offset-1 btn btn-primary" ng-repeat="m in models" ng-click='show(m)'>{{m}}</button>
+	  	<button type="button" class="col-md-1 col-md-offset-1 btn btn-primary" ng-repeat="m in areaname" ng-click='show(m)'>{{m}}</button>
 	  </div>
-	  <div class="col-md-10" id="map" showmap=""></div>
+	  <div class="col-md-10" id="map" showmap="" data="data"></div>
 	</div>
   	<script src="dist/lib.js"></script>
   	<script src="dist/angular-raphael-chinamap.js"></script>
@@ -28,13 +28,26 @@
   			angular.module('app', ['ChinaMap']).controller('MainCtrl', ['$scope', MainCtrl]);
 
   			function MainCtrl($scope) {
-  				$scope.models = ['a', 'b', 'c', 'd', 'e'];
+          var main = this;
 
-  				$scope.show = function(m) {
-  					console.log(m);
-  				};
+  				$scope.areaname = ['海南', '湖南', '新疆'];
+  				$scope.data = {'海南':125, '湖南':998};
 
-  				$scope.mapDatas = {'海南':998};
+          $scope.show = function(name) {
+            var obj = {};
+            obj[name] = 100000;
+            $scope.data = obj;
+          };
+
+          main.createData = function() {
+             var objs =[{a:1},{a:2}];
+            angular.forEach(objs, function(data){
+            console.log(data.a);
+            });
+
+          };
+
+          main.createData();
   			}
   		})();
   	</script>
